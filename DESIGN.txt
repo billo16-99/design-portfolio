@@ -1,0 +1,109 @@
+Here is the complete design system formatted in JSON. This is specifically engineered for an AI website builder to generate that dark, luxurious, high-converting structure we just mapped out.
+
+It fuses the 9-step conversion layout with a cinematic aesthetic. It’s designed to act as a dark, premium canvas that lets hyper-realistic lighting adjustments and cinematic visual storytelling take center stage.
+
+```json
+{
+  "designSystemName": "Cinematic Dark Luxury - AI Agency",
+  "meta": {
+    "description": "A premium, conversion-optimized dark mode design system for an AI poster agency. Focuses on large visuals, smooth animations, grain textures, and high-contrast neon accents to drive sales.",
+    "targetAIContext": "Use this JSON to guide the creation of a 9-section landing page. Prioritize dark backgrounds, floating cards, glow effects, and a layout that frames highly detailed, atmospheric image assets."
+  },
+  "globalTokens": {
+    "colors": {
+      "brand": {
+        "primaryAccent": "#C2FF0F",
+        "primaryAccentHover": "#AEE600",
+        "glowEffect": "rgba(194, 255, 15, 0.15)"
+      },
+      "neutral": {
+        "backgroundBase": "#050505",
+        "surfaceElevated": "#121212",
+        "surfaceCard": "#1A1A1A",
+        "textPrimary": "#FFFFFF",
+        "textSecondary": "#A1A1AA",
+        "borderSubtle": "#27272A"
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "headings": "'Space Grotesk', 'Inter', sans-serif",
+        "body": "'Inter', sans-serif"
+      },
+      "fontWeights": {
+        "regular": "400",
+        "medium": "500",
+        "bold": "700"
+      },
+      "hierarchy": {
+        "h1Hero": { "fontSize": "clamp(3rem, 8vw, 5rem)", "fontWeight": "700", "lineHeight": "1.05", "letterSpacing": "-0.04em" },
+        "h2Section": { "fontSize": "clamp(2rem, 5vw, 3.5rem)", "fontWeight": "700", "lineHeight": "1.1" },
+        "h3Card": { "fontSize": "1.5rem", "fontWeight": "500", "lineHeight": "1.2" },
+        "bodyLarge": { "fontSize": "1.125rem", "color": "#A1A1AA", "lineHeight": "1.6" },
+        "bodyBase": { "fontSize": "1rem", "color": "#A1A1AA", "lineHeight": "1.5" }
+      }
+    },
+    "effects": {
+      "texture": "Subtle noise/grain overlay across the entire base background (opacity: 0.03)",
+      "shadows": {
+        "neonGlow": "0 0 30px rgba(194, 255, 15, 0.2)",
+        "cardFloat": "0 20px 40px rgba(0, 0, 0, 0.4)"
+      },
+      "borders": {
+        "radiusStandard": "16px",
+        "radiusButton": "100px"
+      },
+      "animations": {
+        "scrollReveal": "Fade up and gentle scale-in (duration: 0.6s, ease: cubic-bezier(0.22, 1, 0.36, 1))",
+        "cardHover": "Translate Y -4px, increase border glow, slightly brighten image overlay"
+      }
+    }
+  },
+  "layoutStructure": {
+    "1_heroSection": {
+      "layout": "Centered alignment, max-width 800px for text, full viewport height.",
+      "visuals": "Dark gradient background. Avoid distracting graphics; text must be the focal point before scrolling to the gallery.",
+      "components": {
+        "headline": "Cinematic AI Posters for Brands, Artists & Creators.",
+        "subheadline": "Use 'bodyLarge' typography.",
+        "primaryCTA": "Solid #C2FF0F pill button, black text, neon glow hover effect. Text: 'Order Now'."
+      }
+    },
+    "2_posterShowcase": {
+      "layout": "Dynamic masonry grid or full-bleed horizontal scroll.",
+      "imageGuidelines": "UI frames must be minimal to avoid detracting from intricate details. Perfect for showcasing blended likenesses, moody atmospheric concepts (e.g., vintage horror/radio themes), and hyper-realistic character art.",
+      "interaction": "On hover: image scales up 1.03x inside container, subtle dimming of un-hovered siblings."
+    },
+    "3_pricing": {
+      "layout": "3-column CSS grid. Center card (Pro) visually elevated.",
+      "cardStyle": "SurfaceCard background, borderSubtle outline. Center card has neon border glow.",
+      "elements": "Price large and bold, checklist of features (4K resolution, commercial use, revisions) with neon checkmarks."
+    },
+    "4_deliverables": {
+      "layout": "Icon grid (2x3 or 3x2).",
+      "style": "Minimalist monochrome icons with a slight neon tint. Brief headers, short descriptions."
+    },
+    "5_howItWorks": {
+      "layout": "Vertical timeline or 3-step horizontal flexbox.",
+      "styling": "Large translucent numbers (e.g., '01', '02', '03') positioned behind the step titles."
+    },
+    "6_testimonials": {
+      "layout": "Carousel of floating cards.",
+      "cardStyle": "Darker than the background (#0A0A0A), slight inner border. Includes avatar, name, and 5 neon stars."
+    },
+    "7_about": {
+      "layout": "Two-column: Text on left, creator photo/avatar on right.",
+      "tone": "Brief, professional, focusing on advanced prompting and editing expertise."
+    },
+    "8_faq": {
+      "layout": "Single-column accordion list, max-width 700px.",
+      "interaction": "Smooth expand/collapse animation. Plus/minus icon toggle in primary accent color."
+    },
+    "9_contactAndFooter": {
+      "layout": "Simple embedded form (Tally/Typeform styling) or direct email/social links.",
+      "footer": "Minimal links, copyright, dark gray text."
+    }
+  }
+}
+
+```
