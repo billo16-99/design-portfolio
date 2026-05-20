@@ -15,7 +15,7 @@ export default function OrderPage() {
       </a>
 
       <p className="text-xs text-text-secondary mt-4">
-        Or email: esselabdulghafar@gmail.com
+        Or email: esselabdul2@gmail.com
       </p>
     </div>
   )
