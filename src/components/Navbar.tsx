@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import ThemeToggle from "./ThemeToggle"
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -22,7 +23,8 @@ export default function Navbar() {
         <Link href="/about" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">About</Link>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-1.5">
+        <ThemeToggle />
         <Link
           href="/store"
           className="hidden md:inline-flex items-center gap-1.5 border border-primary-accent/40 text-primary-accent px-4 lg:px-5 py-2 rounded-full text-sm font-medium hover:bg-primary-accent/10 transition-all"
