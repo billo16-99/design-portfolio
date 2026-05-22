@@ -18,12 +18,20 @@ export default function Navbar() {
       {/* Desktop nav */}
       <div className="hidden md:flex items-center gap-1 bg-surface-elevated border border-border-subtle rounded-full px-2 py-1">
         <Link href="/portfolio" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Work</Link>
-        <Link href="/store" className="px-4 py-2 text-sm text-primary-accent font-medium hover:text-primary-accent-hover transition-colors relative after:absolute after:inset-x-2 after:bottom-0 after:h-[2px] after:bg-primary-accent after:rounded-full">Store</Link>
         <Link href="/order" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Order</Link>
         <Link href="/about" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">About</Link>
       </div>
 
       <div className="flex items-center gap-3">
+        <Link
+          href="/store"
+          className="hidden md:inline-flex items-center gap-1.5 border border-primary-accent/40 text-primary-accent px-4 lg:px-5 py-2 rounded-full text-sm font-medium hover:bg-primary-accent/10 transition-all"
+        >
+          <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h2l1 10h12l1-10H3zm2 0l.75-3h12.5l.75 3M9 18a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+          </svg>
+          Store
+        </Link>
         <Link
           href="/order"
           className="bg-primary-accent text-black px-4 lg:px-5 py-2 rounded-full text-sm font-medium hover:bg-primary-accent-hover transition-all shadow-[0_0_20px_rgba(194,255,15,0.2)]"
@@ -43,7 +51,12 @@ export default function Navbar() {
       {open && (
         <div className="absolute top-full left-0 right-0 mx-4 bg-surface-elevated border border-border-subtle rounded-[16px] p-4 flex flex-col gap-2 md:hidden">
           <Link href="/portfolio" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-text-secondary hover:text-white rounded-full hover:bg-white/5">Work</Link>
-          <Link href="/store" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-primary-accent font-medium rounded-full bg-primary-accent/10">Store</Link>
+          <Link href="/store" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-primary-accent font-medium rounded-full bg-primary-accent/10 flex items-center gap-2">
+            <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h2l1 10h12l1-10H3zm2 0l.75-3h12.5l.75 3M9 18a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+            </svg>
+            Store
+          </Link>
           <Link href="/order" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-text-secondary hover:text-white rounded-full hover:bg-white/5">Order</Link>
           <Link href="/about" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-text-secondary hover:text-white rounded-full hover:bg-white/5">About</Link>
         </div>
