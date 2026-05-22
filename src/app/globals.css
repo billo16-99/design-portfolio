@@ -16,31 +16,10 @@
   --radius-pill: 100px;
 }
 
-html {
-  color-scheme: dark;
-}
-
-html.light {
-  color-scheme: light;
-  --color-primary-accent: #8AB80A;
-  --color-primary-accent-hover: #7AA308;
-  --color-glow: rgba(138, 184, 10, 0.15);
-  --color-surface-elevated: #EBEBE8;
-  --color-surface-card: #FFFFFF;
-  --color-border-subtle: #D4D4D0;
-  --color-text-secondary: #6B6B68;
-}
-
-html.light body {
-  background: #F5F5F0;
-  color: #1A1A1A;
-}
-
 body {
   background: #050505;
   font-family: var(--font-body);
   color: #FFFFFF;
-  transition: background 0.3s, color 0.3s;
 }
 
 /* Grain texture overlay */

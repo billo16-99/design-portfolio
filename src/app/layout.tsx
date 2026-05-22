@@ -25,12 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{
-          __html: `try{let t=localStorage.getItem("theme");if(t==="light"||(!t&&matchMedia("(prefers-color-scheme:light)").matches))document.documentElement.classList.add("light")}catch(e){}`
-        }} />
-      </head>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
         <BackgroundBlobs />
         <div className="relative z-10">
