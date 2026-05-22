@@ -10,9 +10,9 @@ export default function Navbar() {
     <nav className="flex items-center justify-between px-4 sm:px-6 lg:px-10 py-4 lg:py-6 relative z-50">
       <Link href="/" className="flex items-center gap-2">
         <span className="size-8 rounded-lg bg-primary-accent flex items-center justify-center">
-          <span className="text-sm font-bold text-black">AI</span>
+          <span className="text-sm font-bold text-black">DA</span>
         </span>
-        <span className="font-headings font-bold text-sm hidden sm:inline">Poster Studio</span>
+        <span className="font-headings font-bold text-sm hidden sm:inline">AI D.A</span>
       </Link>
 
       {/* Desktop nav */}

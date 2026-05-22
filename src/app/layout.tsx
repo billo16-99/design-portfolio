@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import BackgroundBlobs from "@/components/BackgroundBlobs";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,8 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Poster Studio",
-  description: "Cinematic AI Posters for Brands, Artists & Creators",
+  title: "AI Design Academy",
+  description: "AI-generated poster design services by AI D.A",
 };
 
 export default function RootLayout({
@@ -26,8 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
-        <Navbar />
-        <main>{children}</main>
+        <BackgroundBlobs />
+        <div className="relative z-10">
+          <Navbar />
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );

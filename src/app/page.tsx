@@ -4,7 +4,6 @@ import { projects } from "@/data/projects"
 export default function Home() {
   return (
     <div>
-      {/* Section 1: Hero */}
       <section className="min-h-screen flex items-center justify-center px-6 text-center">
         <div className="max-w-[800px] animate-reveal">
           <h1 className="text-[clamp(3rem,8vw,5rem)] font-bold font-headings leading-[1.05] tracking-[-0.04em] mb-6">
@@ -25,7 +24,7 @@ export default function Home() {
       {/* Section 2: Poster Showcase */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-10">
         <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold font-headings leading-[1.1] mb-8 lg:mb-12">Featured Work</h2>
-        <div className="flex gap-3 lg:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 sm:-mx-6 lg:-mx-10 px-4 sm:px-6 lg:px-10">
+        <div className="flex gap-3 lg:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 sm:-mx-6 lg:-mx-10 px-4 sm:px-6 lg:px-10 hide-scrollbar">
           {projects.map((project) => (
             <Link
               key={project.slug}
@@ -41,7 +40,6 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-lg font-headings font-medium text-white">{project.title}</h3>
               </div>
-              {/* Dim siblings on hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/0 transition-colors duration-300 group-has-[~&]:bg-black/40" />
             </Link>
           ))}
@@ -211,7 +209,7 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-border-subtle py-6 lg:py-8 px-4 sm:px-6 lg:px-10 text-center text-sm text-text-secondary">
-        © {new Date().getFullYear()} AI Poster Studio. All rights reserved.
+        © {new Date().getFullYear()} AI Design Academy. All rights reserved.
       </footer>
     </div>
   )
