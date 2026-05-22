@@ -15,8 +15,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Design Academy",
-  description: "AI-generated poster design services by AI D.A",
+  title: "AI Design Academy | Cinematic AI Poster & Design Services",
+  description: "Premium AI-generated poster designs, digital guides, prompts, and software. Cinematic quality posters for brands, artists, and creators. Order via WhatsApp.",
+  keywords: ["AI posters", "cinematic design", "AI design services", "digital products", "AI prompts", "poster design"],
+  openGraph: {
+    title: "AI Design Academy",
+    description: "Premium AI-generated poster designs and digital products. Cinematic quality delivered fast.",
+    url: "https://design-portfolio-iota-seven.vercel.app",
+    siteName: "AI Design Academy",
+    type: "website",
+  },
+  verification: { google: "google2f12b8aab776ee12" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
