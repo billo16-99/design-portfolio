@@ -1,7 +1,13 @@
 import type { Product } from "@/data/products"
 
-export default function ProductCard({ product }: { product: Product }) {
-  const waMessage = `Hi, I'm interested in ${product.name} - $${product.price}`
+export default function ProductCard({
+  product,
+  formatPrice,
+}: {
+  product: Product
+  formatPrice: (usdPrice: number) => string
+}) {
+  const waMessage = `Hi, I'm interested in ${product.name} - ${formatPrice(product.price)}`
   const waUrl = `https://wa.me/233206560380?text=${encodeURIComponent(waMessage)}`
 
   return (
@@ -10,7 +16,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <h3 className="font-headings font-medium text-sm sm:text-base mb-1">{product.name}</h3>
       <p className="text-xs sm:text-sm text-text-secondary mb-3 flex-1 leading-relaxed">{product.description}</p>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
-        <span className="text-base sm:text-lg font-bold text-center sm:text-left">${product.price}</span>
+        <span className="text-base sm:text-lg font-bold text-center sm:text-left">{formatPrice(product.price)}</span>
         <a
           href={waUrl}
           target="_blank"
