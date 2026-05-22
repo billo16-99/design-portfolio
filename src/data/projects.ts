@@ -12,7 +12,7 @@ export const projects: Project[] = [
     slug: "ai-poster-1",
     title: "AI Poster 1",
     category: "poster",
-    image: "https://lh3.googleusercontent.com/pw/AP1GczMm9rfupUonxyNSnUImzamgzOug8EOxDXYUWJbCVL317qO8bxIBg-QXzslHpYKBd7iE-XwOH5bxzFSrfft7TUczfyPJcGb7djz1R5eMGVwcskux3o8=w800-no",
+    image: "",
     description: "AI-generated poster design",
     tools: ["Midjourney"],
   },

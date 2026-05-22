@@ -29,21 +29,25 @@ export default function Home() {
       {/* Section 2: Poster Showcase */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-10">
         <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold font-headings leading-[1.1] mb-8 lg:mb-12">Featured Work</h2>
-        <div className="flex gap-3 lg:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 sm:-mx-6 lg:-mx-10 px-4 sm:px-6 lg:px-10 hide-scrollbar group/showcase">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-4">
           {projects.map((project) => (
             <Link
               key={project.slug}
               href={`/portfolio/${project.slug}`}
-              className="snap-start shrink-0 w-[260px] sm:w-[300px] aspect-[3/4] rounded-[16px] overflow-hidden relative group transition-opacity duration-300 group-hover/showcase:opacity-50 hover:!opacity-100"
+              className="aspect-[3/4] rounded-[16px] overflow-hidden relative group transition-opacity duration-300 hover:opacity-80"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-              />
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/20 to-surface-elevated" />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-lg font-headings font-medium text-white">{project.title}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-sm font-headings font-medium text-white">{project.title}</h3>
               </div>
             </Link>
           ))}
