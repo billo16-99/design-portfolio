@@ -18,6 +18,7 @@ export default function Navbar() {
       {/* Desktop nav */}
       <div className="hidden md:flex items-center gap-1 bg-surface-elevated border border-border-subtle rounded-full px-2 py-1">
         <Link href="/portfolio" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Work</Link>
+        <Link href="/store" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Store</Link>
         <Link href="/order" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Order</Link>
         <Link href="/about" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">About</Link>
       </div>
@@ -42,6 +43,7 @@ export default function Navbar() {
       {open && (
         <div className="absolute top-full left-0 right-0 mx-4 bg-surface-elevated border border-border-subtle rounded-[16px] p-4 flex flex-col gap-2 md:hidden">
           <Link href="/portfolio" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-text-secondary hover:text-white rounded-full hover:bg-white/5">Work</Link>
+          <Link href="/store" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-text-secondary hover:text-white rounded-full hover:bg-white/5">Store</Link>
           <Link href="/order" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-text-secondary hover:text-white rounded-full hover:bg-white/5">Order</Link>
           <Link href="/about" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-text-secondary hover:text-white rounded-full hover:bg-white/5">About</Link>
         </div>
