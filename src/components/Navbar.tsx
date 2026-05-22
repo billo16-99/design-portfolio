@@ -17,14 +17,16 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop nav */}
-      <div className="hidden md:flex items-center gap-1 bg-surface-elevated border border-border-subtle rounded-full px-2 py-1">
-        <Link href="/portfolio" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Work</Link>
-        <Link href="/order" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Order</Link>
-        <Link href="/about" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">About</Link>
+      <div className="hidden md:flex items-center gap-3">
+        <div className="flex items-center gap-1 bg-surface-elevated border border-border-subtle rounded-full px-2 py-1">
+          <Link href="/portfolio" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Work</Link>
+          <Link href="/order" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">Order</Link>
+          <Link href="/about" className="px-4 py-2 text-sm text-text-secondary hover:text-white transition-colors">About</Link>
+        </div>
+        <ThemeToggle />
       </div>
 
       <div className="flex items-center gap-1.5">
-        <ThemeToggle />
         <Link
           href="/store"
           className="hidden md:inline-flex items-center gap-1.5 border border-primary-accent/40 text-primary-accent px-4 lg:px-5 py-2 rounded-full text-sm font-medium hover:bg-primary-accent/10 transition-all"
@@ -52,6 +54,10 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="absolute top-full left-0 right-0 mx-4 bg-surface-elevated border border-border-subtle rounded-[16px] p-4 flex flex-col gap-2 md:hidden">
+          <div className="flex items-center justify-between pb-2 border-b border-border-subtle mb-2">
+            <span className="text-xs text-text-secondary">Theme</span>
+            <ThemeToggle />
+          </div>
           <Link href="/portfolio" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-text-secondary hover:text-white rounded-full hover:bg-white/5">Work</Link>
           <Link href="/store" onClick={() => setOpen(false)} className="px-4 py-3 text-sm text-primary-accent font-medium rounded-full bg-primary-accent/10 flex items-center gap-2">
             <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
