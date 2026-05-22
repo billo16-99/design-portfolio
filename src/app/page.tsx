@@ -1,7 +1,12 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import { projects } from "@/data/projects"
 
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
   return (
     <div>
       <section className="min-h-screen flex items-center justify-center px-6 text-center">
@@ -24,23 +29,22 @@ export default function Home() {
       {/* Section 2: Poster Showcase */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-10">
         <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold font-headings leading-[1.1] mb-8 lg:mb-12">Featured Work</h2>
-        <div className="flex gap-3 lg:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 sm:-mx-6 lg:-mx-10 px-4 sm:px-6 lg:px-10 hide-scrollbar">
+        <div className="flex gap-3 lg:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 sm:-mx-6 lg:-mx-10 px-4 sm:px-6 lg:px-10 hide-scrollbar group/showcase">
           {projects.map((project) => (
             <Link
               key={project.slug}
               href={`/portfolio/${project.slug}`}
-              className="snap-start shrink-0 w-[260px] sm:w-[300px] aspect-[3/4] rounded-[16px] overflow-hidden relative group"
+              className="snap-start shrink-0 w-[260px] sm:w-[300px] aspect-[3/4] rounded-[16px] overflow-hidden relative group transition-opacity duration-300 group-hover/showcase:opacity-50 hover:!opacity-100"
             >
               <img
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-lg font-headings font-medium text-white">{project.title}</h3>
               </div>
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/0 transition-colors duration-300 group-has-[~&]:bg-black/40" />
             </Link>
           ))}
         </div>
@@ -59,7 +63,7 @@ export default function Home() {
               key={tier.name}
               className={`rounded-[16px] p-8 border ${
                 tier.popular
-                  ? "bg-surface-card border-primary-accent shadow-[0_0_30px_rgba(194,255,15,0.15)]"
+                  ? "bg-surface-card border-primary-accent/50 shadow-[0_0_30px_rgba(194,255,15,0.25),0_0_60px_rgba(194,255,15,0.1)]"
                   : "bg-surface-card border-border-subtle"
               }`}
             >
@@ -94,16 +98,18 @@ export default function Home() {
         <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold font-headings leading-[1.1] mb-8 lg:mb-12 text-center">What You Get</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
           {[
-            { title: "4K Resolution", desc: "Crisp, print-ready files" },
-            { title: "Commercial Use", desc: "Full licensing included" },
-            { title: "Fast Delivery", desc: "48h turnaround typical" },
-            { title: "Source Files", desc: "PSD, PNG, SVG formats" },
-            { title: "Revisions", desc: "Free adjustments" },
-            { title: "Custom Sizes", desc: "Any format you need" },
+            { title: "4K Resolution", desc: "Crisp, print-ready files", icon: "M21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10m4 0 2 2-10 10M11 9h4" },
+            { title: "Commercial Use", desc: "Full licensing included", icon: "M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" },
+            { title: "Fast Delivery", desc: "48h turnaround typical", icon: "M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" },
+            { title: "Source Files", desc: "PSD, PNG, SVG formats", icon: "M5 8h14M5 8a2 2 0 1 1 0-4h14a2 2 0 1 1 0 4M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8m-9 4h4" },
+            { title: "Revisions", desc: "Free adjustments", icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 0 1 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15" },
+            { title: "Custom Sizes", desc: "Any format you need", icon: "M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" },
           ].map((item) => (
             <div key={item.title} className="bg-surface-card border border-border-subtle rounded-[16px] p-6 text-center">
               <div className="size-10 rounded-full bg-primary-accent/10 flex items-center justify-center mx-auto mb-4">
-                <span className="text-primary-accent text-lg">✦</span>
+                <svg className="size-5 text-primary-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                </svg>
               </div>
               <h3 className="font-headings font-medium mb-1">{item.title}</h3>
               <p className="text-sm text-text-secondary">{item.desc}</p>
@@ -139,7 +145,7 @@ export default function Home() {
             { name: "Sarah K.", role: "Brand Owner", text: "Fast turnaround and the quality blew me away. Will definitely order again." },
             { name: "James R.", role: "Content Creator", text: "Best AI poster work I've seen. The cinematic style is unmatched." },
           ].map((t) => (
-            <div key={t.name} className="snap-start shrink-0 w-[280px] sm:w-[300px] bg-[#0A0A0A] border border-border-subtle rounded-[16px] p-6">
+            <div key={t.name} className="snap-start shrink-0 w-[280px] sm:w-[300px] bg-[#0A0A0A] border border-border-subtle rounded-[16px] p-6 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => <span key={i} className="text-primary-accent text-sm">★</span>)}
               </div>
@@ -170,7 +176,9 @@ export default function Home() {
             </p>
           </div>
           <div className="bg-surface-card border border-border-subtle rounded-[16px] aspect-square flex items-center justify-center">
-            <span className="text-6xl">🎨</span>
+            <div className="size-20 rounded-full bg-primary-accent/10 border border-primary-accent/30 flex items-center justify-center">
+              <span className="text-2xl font-bold font-headings text-primary-accent">AI</span>
+            </div>
           </div>
         </div>
       </section>
@@ -185,13 +193,22 @@ export default function Home() {
             { q: "What formats do I get?", a: "PNG, JPG, and source PSD files." },
             { q: "Do I own the rights?", a: "Full commercial use included with all tiers." },
           ].map((faq, i) => (
-            <details key={i} className="bg-surface-card border border-border-subtle rounded-[16px] p-6 group">
-              <summary className="flex items-center justify-between cursor-pointer font-headings font-medium">
+            <div key={i} className="bg-surface-card border border-border-subtle rounded-[16px]">
+              <button
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="flex items-center justify-between w-full p-6 text-left font-headings font-medium"
+              >
                 {faq.q}
-                <span className="text-primary-accent text-xl group-open:rotate-45 transition-transform">+</span>
-              </summary>
-              <p className="mt-4 text-sm text-text-secondary">{faq.a}</p>
-            </details>
+                <span className={`text-primary-accent text-xl transition-transform duration-300 ${openFaq === i ? "rotate-45" : ""}`}>+</span>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openFaq === i ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <p className="px-6 pb-6 text-sm text-text-secondary">{faq.a}</p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
